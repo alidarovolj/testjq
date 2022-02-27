@@ -201,17 +201,51 @@ $(document).ready(function () {
             '<p class="rate"></p>' +
             '</div>');
         //значения
-        $('.resultFilter .movie-' + index + " h1").append(value.title);
+        $('.resultFilter .movie-' + index + " h1").append(value.title.toLowerCase());
         $('.resultFilter .movie-' + index + " small").append(value.date);
         $('.resultFilter .movie-' + index + " .rate").append(value.rate);
         $('.resultFilter .movie-' + index + " .info p").append(value.desc);
         $('.resultFilter .movie-' + index + " img.ava").attr("src", value.img);
     });
 
-    // var inp = '';
+    var inp = '';
 
     $('.filter input').on('keyup', function () {
-
+        inp = $(this).val().toLowerCase();
+        $('.resultFilter .singleMovie .info h1').parent().parent().hide();
+        $('.resultFilter .singleMovie .info h1:contains('+ inp +')').parent().parent().show();
+        console.log(inp);
     });
+
+    for(let i = 1; i <= 100; i++) {
+        $('.addBlock select').append('<option value="' + i + '">' + i + '</option>')
+    }
+
+    var titl = '';
+    var datepick = '';
+    var select = '';
+    var obj = {};
+
+    $('.addBlock input:nth-child(1)').on('keyup', function() {
+        titl = $(this).val();
+        console.log(titl);
+    });
+
+    $('.addBlock input.datepick').on('click', function() {
+        datepick = $('.addBlock input.datepick').val();
+        console.log(datepick);
+    });
+
+    $('.addBlock select').on('click', function() {
+        select = $(this).val();
+        console.log(select);
+    })
+
+    $('.addBlock p').on('click', function() {
+        obj.title = titl;
+        obj.rate = select;
+        obj.date = datepick;
+        console.log(obj);
+    })
 
 });
