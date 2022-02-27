@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <div class="home">
-
-    </div>
+    <div class="home"></div>
     <!-- <calculator /> -->
   </div>
 </template>

@@ -134,14 +134,13 @@ $(document).ready(function () {
     //     val2 = [];
     // });
 
-    var arr = [
-        {
+    var arr = [{
             "title": "Citizen Kane",
             "date": "September 4, 1941",
             "desc": "Following the death of a publishing tycoon, news reporters scramble to discover the meaning of his final utterance.",
             "rate": 100,
             "img": "https://static.metacritic.com/images/products/movies/5/1c4da52a6f2335836a21271ec4a6f6b3-98.jpg",
-            "mustsee": false
+            "mustsee": true
         },
         {
             "title": "The Godfather",
@@ -163,18 +162,56 @@ $(document).ready(function () {
     console.log(arr);
     console.log(arr[0].title);
 
-    $.each(arr, function(index, value) {
+    $.each(arr, function (index, value) {
         //структура
-        $('.home').append('<div class="movie-' + index + '">' + '<h1>' + '</h1>' + '<small></small>' + '<img class="ava">' + '<img class="must-img">' + '</div>');
+        $('.home').append(
+            '<div class="singleMovie movie-' + index + '">' +
+            '<div class="images">' +
+            '<img class="ava">' +
+            '<img class="must-img">' +
+            '</div>' +
+            '<div class="info">' +
+            '<h1></h1>' +
+            '<small></small>' +
+            '<p></p>' +
+            '</div>' +
+            '<p class="rate"></p>' +
+            '</div>');
         //значения
         $('.home .movie-' + index + " h1").append(value.title);
         $('.home .movie-' + index + " small").append(value.date);
+        $('.home .movie-' + index + " .rate").append(value.rate);
+        $('.home .movie-' + index + " .info p").append(value.desc);
         $('.home .movie-' + index + " img.ava").attr("src", value.img);
         if (value.mustsee === true) {
             $('.home .movie-' + index + " img.must-img").attr("src", "https://www.metacritic.com/images/icons/mc-mustsee-sm.svg");
         } else {
             console.log("Фильм с индексом: " + index + ' не рекомендуется к просмотру')
         }
+    });
+
+    $.each(arr, function (index, value) {
+        //структура
+        $('.resultFilter').append(
+            '<div class="singleMovie movie-' + index + '">' +
+            '<div class="info">' +
+            '<h1></h1>' +
+            '<small></small>' +
+            '</div>' +
+            '<p class="rate"></p>' +
+            '</div>');
+        //значения
+        $('.resultFilter .movie-' + index + " h1").append(value.title);
+        $('.resultFilter .movie-' + index + " small").append(value.date);
+        $('.resultFilter .movie-' + index + " .rate").append(value.rate);
+        $('.resultFilter .movie-' + index + " .info p").append(value.desc);
+        $('.resultFilter .movie-' + index + " img.ava").attr("src", value.img);
+    });
+
+    // var inp = '';
+
+    $('.filter input').on('keyup', function () {
+
     });
 
 });
