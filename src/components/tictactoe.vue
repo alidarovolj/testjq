@@ -95,15 +95,20 @@ export default {
     }
 
     $(".slot").on("click", function () {
-      if (turn == 1) {
-        $(this).html(x);
-        turn = 2;
-        $(".turn").html("Ход: " + o);
+      if ($(this).text() != x && $(this).text() != o) {
+        if (turn == 1) {
+          $(this).html(x);
+          turn = 2;
+          $(".turn").html("Ход: " + o);
+          console.log("Ходит нолик");
+        } else {
+          $(this).html(o);
+          turn = 1;
+          console.log("Ходит крестик");
+          $(".turn").html("Ход: " + x);
+        }
       } else {
-        $(this).html(o);
-        turn = 1;
-        console.log("Ходит крестик");
-        $(".turn").html("Ход: " + x);
+        console.log("Данный слот уже занят");
       }
     });
   },
