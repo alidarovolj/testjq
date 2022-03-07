@@ -84,6 +84,7 @@ import $ from "jquery";
 export default {
   name: "TicTacToe",
   mounted() {
+    var arr = ["", "", "", "", "", "", "", "", ""];
     var x = "X";
     var o = "O";
     var turn = Math.ceil(Math.random() * 2);
@@ -94,22 +95,29 @@ export default {
       $(".turn").html("Ход: " + o);
     }
 
-    $(".slot").on("click", function () {
-      if ($(this).text() != x && $(this).text() != o) {
-        if (turn == 1) {
-          $(this).html(x);
-          turn = 2;
-          $(".turn").html("Ход: " + o);
-          console.log("Ходит нолик");
+    $(".slot").each(function (index) {
+      $(this).on("click", function () {
+        if ($(this).text() != x && $(this).text() != o) {
+          if (turn == 1) {
+            $(this).html(x);
+            turn = 2;
+            $(".turn").html("Ход: " + o);
+            arr[index] = x;
+            console.log(arr);
+          } else {
+            $(this).html(o);
+            turn = 1;
+            arr[index] = o;
+            console.log(arr);
+            $(".turn").html("Ход: " + x);
+          }
         } else {
-          $(this).html(o);
-          turn = 1;
-          console.log("Ходит крестик");
-          $(".turn").html("Ход: " + x);
+          console.log("Данный слот уже занят");
         }
-      } else {
-        console.log("Данный слот уже занят");
-      }
+        if (arr[0] == x && arr[1] == x && arr[2] == x) {
+            console.log('Победил x')
+        }
+      });
     });
   },
 };
