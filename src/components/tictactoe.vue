@@ -99,7 +99,7 @@ export default {
 
     $(".slot").each(function (index) {
       $(this).on("click", function () {
-        if ($(this).text() != x && $(this).text() != o && final != true) {
+        if ($(this).text() != x && $(this).text() != o && final == false) {
           if (turn == 1) {
             $(this).html(x);
             turn = 2;
