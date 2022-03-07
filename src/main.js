@@ -5,6 +5,7 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/jq.js'
 import './assets/style.less'
+import './assets/tailwind.css'
 
 Vue.config.productionTip = false
 
