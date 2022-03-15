@@ -75,11 +75,11 @@
         v-model="form.video"
       />
       <p class="font-bold my-2">Enter mustsee...</p>
-      <input
-        class="border border-gray-300 text-lg w-full p-3 rounded-lg"
-        type="text"
-        v-model="form.mustsee"
-      />
+      <!-- <select v-model="form.mustsee" name="" id="">
+          <option value=true>True</option>
+          <option value=false>False</option>
+      </select> -->
+      <input type="checkbox" value=true v-model="form.mustsee">
       <button
         class="
           bg-green-400
