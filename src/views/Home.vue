@@ -20,7 +20,8 @@
     <button @click="img = 'https://avatars.mds.yandex.net/get-ott/1652588/2a0000017e9baa19c29d7f0044f2af6a1191/220x330'">Change image</button>
     <img :src="img" alt=""> -->
     <!-- <tictac /> -->
-    <space />
+    <!-- <space /> -->
+    <Movies />
   </div>
 </template>
 
@@ -30,7 +31,8 @@
 // import first from "@/components/first.vue";
 // import second from "@/components/second.vue";
 // import tictac from '@/components/tictactoe'
-import space from '@/components/space'
+// import space from '@/components/space'
+import Movies from '@/components/movie-list.vue'
 
 export default {
   name: "Home",
@@ -40,7 +42,8 @@ export default {
     // first,
     // second,
     // tictac,
-    space
+    // space,
+    Movies
   },
   data() {
     return {
